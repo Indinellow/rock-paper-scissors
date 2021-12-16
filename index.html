@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R P S</title>
+</head>
+<body>
+    <script>
+    /* computerPlay randomly returns Rock, Paper or Scissor */
+    
+    
+    function randomIntFromInterval(min, max) { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min)
+}
+    
+    function computerPlay() {
+        let possibleChoices = ['rock','paper','scissors'];
+        let pick = randomIntFromInterval(0,2);
+        return possibleChoices[pick];
+    } 
+
+    function playerSelect(){
+        let playerChoice=window.prompt('Do you want to pick Rock, Paper or Scissors?');
+        let playerChoiceCorrected = playerChoice.toLowerCase();
+        if (playerChoiceCorrected !== 'rock' && playerChoiceCorrected !== 'paper' && playerChoiceCorrected !== 'scissors' ){
+            alert("That is not a valid choice, please pick again!");
+            playerChoiceCorrected = playerSelect();
+        }
+        return playerChoiceCorrected;
+    }
+    function oneGame(playerSelection,computerSelection){
+        
+
+        if (playerSelection === 'rock'){
+            if (computerSelection === 'rock'){
+                return ['It\'s a draw! Rock vs Rock!',1]; 
+            }
+            else if (computerSelection === 'paper'){
+                return ['You lose! Paper beats Rock!',2];
+            }
+            else {
+                return ['You win! Rock beats Scissors!',3];
+            } 
+        }
+
+        if (playerSelection === 'paper'){
+            if (computerSelection === 'paper'){
+                return ['It\'s a draw! Paper vs Paper!',1]; 
+            }
+            else if (computerSelection === 'scissors'){
+                return ['You lose! Scissors beats Paper!',2];
+            }
+            else {
+                return ['You win! Paper beats Rock!',3];
+            } 
+        }
+
+        if (playerSelection === 'scissors'){
+            if (computerSelection === 'scissors'){
+                return ['It\'s a draw! Scissors vs Scissors!',1]; 
+            }
+            else if (computerSelection === 'rock'){
+                return ['You lose! Rock beats Scissors!',2];
+            }
+            else {
+                return ['You win! Scissors beats Paper!',3];
+            } 
+        }
+    }
+
+    function bestOf5(){
+        let playerScore = 0;
+        let computerScore = 0;
+        while (playerScore != 5 && computerScore != 5){
+            playerChoice = playerSelect();
+            computerChoice = computerPlay();
+            console.log(oneGame(playerChoice,computerChoice)[0]);
+            if (oneGame(playerChoice,computerChoice)[1] === 3){
+                playerScore++;
+            }
+            else if (oneGame(playerChoice,computerChoice)[1] === 2){
+                computerScore++;
+            }
+            console.log(`Current score:${playerScore} - ${computerScore}`);      
+
+        }
+        if (playerScore === 5){
+            return `Congratulations, you win! Final Score: ${playerScore} - ${computerScore}`
+        }
+        else{
+            return `I\'m sorry but you lose! Final Score: ${playerScore} - ${computerScore}`
+        }
+    }
+
+
+
+
+
+
+    </script>
+</body>
+</html>
