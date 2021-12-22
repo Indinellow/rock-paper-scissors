@@ -11,15 +11,29 @@
 <body>
     
 <div class= "container">
-  <h1>LETS PLAY ROCK PAPER SCISSORS!</h1>
-<div class= "scoreContainer">
-  <div class="buttonContainer">
-    <button id='rockButton'>Rock</button>
-    <button id='paperButton'>Paper</button>
-    <button id='scissorsButton'>Scissors</button>
+  <div class="header">
+  <h1 >LETS PLAY ROCK PAPER SCISSORS!</h1>
   </div>
-
- </div>   
-    
+  <div class="playerContainer">
+    <img src="./img/player.png">
+    <div class="buttonContainer">
+      <button id='rockButton'><img src="./img/rock.png"></button>
+      <button id='paperButton'><img src="./img/paper.png"></button>
+      <button id='scissorsButton'><img src="./img/scissors.png"></button>
+    </div>
+  </div>
+  <div class= "scoreContainer">
+  </div>  
+  <div class="computerContainer">
+    <img src="./img/computer.png">
+    <div class='computerChoiceContainer'>
+      <img class='computerChoice computerRock' src="./img/rock.png">
+      <img class='computerChoice computerPaper' src="./img/paper.png">
+      <img class='computerChoice computerScissors' src="./img/scissors.png">
+    </div>
+  </div>
+  <div class='restartContainer'>
+    <button id='restart'>Play Again</button>
+  </div>
 </body>
 </html>
