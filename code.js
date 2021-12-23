@@ -90,6 +90,7 @@ function initializeGame(){
     rockButton.addEventListener('click', playOneRoundRock);
     paperButton.addEventListener('click', playOneRoundPaper);
     scissorsButton.addEventListener('click', playOneRoundScissors );
+    log.textContent='';
 
 }
 
@@ -102,6 +103,8 @@ function playOneRound(playerChoice){
     else if (whoWon[1] === 2){
         computerScore++;
     }
+    const log =document.querySelector('.log');
+    log.textContent=whoWon[0];
     currentScore.textContent=`Current score: ${playerScore} - ${computerScore}`;
     checkScore();
 
@@ -155,6 +158,8 @@ const scissorsButton = document.querySelector('#scissorsButton');
 const computerRock = document.querySelector('.computerRock');
 const computerScissors = document.querySelector('.computerScissors');
 const computerPaper = document.querySelector('.computerPaper');
+const log =document.querySelector('.log');
+
 
 computerPaper.addEventListener('transitionend',removeTransition); 
 computerRock.addEventListener('transitionend',removeTransition); 
